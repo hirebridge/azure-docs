@@ -55,10 +55,8 @@ Configure and test Azure AD SSO with Hirebridge ATS using a test user called **B
 To configure and test Azure AD SSO with Hirebridge ATS, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Assign an Azure AD user](#assign-an-azure-ad-user)** - to enable one of your users to use Azure AD single sign-on.
 1. **[Configure Hirebridge ATS SSO](#configure-hirebridge-ats-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Hirebridge ATS test user](#create-hirebridge-ats-test-user)** - to have a counterpart of B.Simon in Hirebridge ATS that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -73,45 +71,39 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  click **Add a certificate**.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+	![Add certficate link](common/add-saml-certificate.png)
 
-	![The Certificate download link](common/certificatebase64.png)
+1. On the **SAML Signing Certificate** popup, click **New Certificate** and then click **Save**. When saving is complete, close the popup by clicking the **X** in the top-right corner.
 
-1. On the **Set up Hirebridge ATS** section, copy the appropriate URL(s) based on your requirement.
+	![Create certificate link](common/new-saml-certificate.png)
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-### Create an Azure AD test user
+1. In the **SAML Signing Certificate** section, find the **App Federation Metadata Url** and copy it,
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+	![Copy Mtadata Url link](common/copy-metadataurl.png)
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+### Assign an Azure AD user
 
-### Assign the Azure AD test user
-
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Hirebridge ATS.
+In this section, you'll enable one of your users to use Azure single sign-on by granting access to Hirebridge ATS.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Hirebridge ATS**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** dialog, select the user you would like to test from the Users list, then click the **Select** button at the bottom of the screen. This user must exist in the Hirebridge system with the same email address as their primary Azure AD email.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Hirebridge ATS SSO
 
-To configure single sign-on on **Hirebridge ATS** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Hirebridge ATS support team](mailto:support@hirebridge.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Hirebridge ATS** side, you need to be an administrator within the Hirebridge system. 
 
-### Create Hirebridge ATS test user
+1. In the **Administration Control Panel**, in the **Users/Permissions** section, click on **Single Sign-On Configuration**  
+1. Click the **Import Metadata** button at the bottom of the page.
+1. Paste the metadata URL that you copied earlier into the space provided and click **Import**.
 
-In this section, you create a user called Britta Simon in Hirebridge ATS. Work with [Hirebridge ATS support team](mailto:support@hirebridge.com) to add the users in the Hirebridge ATS platform. Users must be created and activated before you use single sign-on.
+The certificate and Entity ID will be extracted from the metadata and saved to your configuration. If you have any issues, contact the [Hirebridge ATS support team](mailto:support@hirebridge.com).
 
 ## Test SSO 
 
